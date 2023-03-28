@@ -1,26 +1,40 @@
-import { Link, Outlet } from 'react-router-dom';
+import styled from '@emotion/styled';
+import { Outlet } from 'react-router-dom';
 
-import { StyledMain, StyledNav } from './styles';
+import NavItem from './NavItem';
 
-const Layout = () => {
+type LayoutProps = {
+  navItems: string[];
+};
+
+const StyledNav = styled.nav`
+  padding: 1rem;
+  border-bottom: 1px solid gainsboro;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    gap: 0.5rem;
+  }
+`;
+
+const StyledMain = styled.main`
+  padding: 1rem;
+`;
+
+const Layout: React.FC<LayoutProps> = ({ navItems }) => {
   return (
     <>
       {/* A "layout route" is a good place to put markup you want to
         share across all the pages on your site, like navigation. */}
       <StyledNav>
         <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-          <li>
-            <Link to="/nothing-here">Nothing Here</Link>
-          </li>
+          {navItems.map((navItem) => (
+            <NavItem key={navItem} to={navItem} />
+          ))}
         </ul>
       </StyledNav>
 
