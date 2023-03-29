@@ -5,7 +5,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 
 import Layout from './components/Layout';
 
-const NAV_ITEMS = ['memo'];
+const NAV_ITEMS = ['memo', 'context'];
 
 const routes = NAV_ITEMS.map((navItem) => {
   return { path: navItem, Component: lazy(() => import(`./pages/${navItem}`)) };
