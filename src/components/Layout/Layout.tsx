@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import NavItem from './NavItem';
 
 type LayoutProps = {
-  navItems: string[];
+  navItemPaths: string[];
 };
 
 const StyledNav = styled.nav`
@@ -25,15 +25,15 @@ const StyledMain = styled.main`
   padding: 1rem;
 `;
 
-const Layout: React.FC<LayoutProps> = ({ navItems }) => {
+const Layout: React.FC<LayoutProps> = ({ navItemPaths }) => {
   return (
     <>
       {/* A "layout route" is a good place to put markup you want to
-        share across all the pages on your site, like navigation. */}
+      share across all the pages on your site, like navigation. */}
       <StyledNav>
         <ul>
-          {navItems.map((navItem) => (
-            <NavItem key={navItem} to={navItem} />
+          {navItemPaths.map((path) => (
+            <NavItem key={path} to={path} />
           ))}
         </ul>
       </StyledNav>
