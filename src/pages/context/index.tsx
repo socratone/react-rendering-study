@@ -22,6 +22,7 @@ const Counter = () => {
 
   return (
     <StyledBox>
+      <div>Counter</div>
       <div>{count}</div>
       <button onClick={increaseCount} style={{ padding: '1rem' }}>
         Increase
@@ -31,6 +32,7 @@ const Counter = () => {
 };
 
 const ProviderGrandChild = () => {
+  console.log('render ProviderGrandChild!');
   return (
     <StyledBox>
       <div>ProviderGrandChild</div>
@@ -50,6 +52,7 @@ const ProviderChild = () => {
 };
 
 const MemoProviderGrandChild = () => {
+  console.log('render MemoProviderGrandChild!');
   return (
     <StyledBox>
       <div>MemoProviderGrandChild</div>
