@@ -17,6 +17,19 @@ const StyledBox = styled.div`
 
 const CountContext = createContext<CountContextValue>({});
 
+const Counter = () => {
+  const { count, increaseCount } = useContext(CountContext);
+
+  return (
+    <StyledBox>
+      <div>{count}</div>
+      <button onClick={increaseCount} style={{ padding: '1rem' }}>
+        Increase
+      </button>
+    </StyledBox>
+  );
+};
+
 const ProviderGrandChild = () => {
   return (
     <StyledBox>
@@ -54,19 +67,6 @@ const MemoProviderChild = memo(() => {
     </StyledBox>
   );
 });
-
-const Counter = () => {
-  const { count, increaseCount } = useContext(CountContext);
-
-  return (
-    <StyledBox>
-      <div>{count}</div>
-      <button onClick={increaseCount} style={{ padding: '1rem' }}>
-        Increase
-      </button>
-    </StyledBox>
-  );
-};
 
 const Context = () => {
   const [count, setCount] = useState(0);
