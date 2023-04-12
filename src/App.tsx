@@ -3,8 +3,9 @@ import './styles/global.css';
 import { Link, Route, Routes } from 'react-router-dom';
 
 import Layout from './components/Layout';
-import Context from './pages/context';
-import Memo from './pages/memo';
+import ContextPage from './pages/context';
+import MemoPage from './pages/memo';
+import ReduxPage from './pages/redux';
 
 export default function App() {
   return (
@@ -12,10 +13,14 @@ export default function App() {
     parent route paths, and nested route elements render inside
     parent route elements. See the note about <Outlet> below. */
     <Routes>
-      <Route path="/" element={<Layout navItemPaths={['memo', 'context']} />}>
-        <Route index element={<Home />} />
-        <Route path="memo" element={<Memo />} />
-        <Route path="context" element={<Context />} />
+      <Route
+        path="/"
+        element={<Layout navItemPaths={['memo', 'context', 'redux']} />}
+      >
+        <Route index element={<HomePage />} />
+        <Route path="memo" element={<MemoPage />} />
+        <Route path="context" element={<ContextPage />} />
+        <Route path="redux" element={<ReduxPage />} />
 
         {/* Using path="*" means "match anything", so this route
         acts like a catch-all for URLs that we don't have explicit
@@ -26,7 +31,7 @@ export default function App() {
   );
 }
 
-function Home() {
+function HomePage() {
   return (
     <div>
       <h2>Home</h2>

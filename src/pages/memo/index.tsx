@@ -32,7 +32,7 @@ const MemoFunctionChild: React.FC<MemoFunctionChildProps> = memo(
   }
 );
 
-const Memo = () => {
+const MemoPage = () => {
   const [count, setCount] = useState(0);
 
   const handleClick = () => {
@@ -67,4 +67,4 @@ const Memo = () => {
   );
 };
 
-export default Memo;
+export default MemoPage;

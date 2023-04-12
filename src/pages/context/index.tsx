@@ -71,7 +71,7 @@ const MemoProviderChild = memo(() => {
   );
 });
 
-const Context = () => {
+const ContextPage = () => {
   const [count, setCount] = useState(0);
 
   const increaseCount = () => {
@@ -94,4 +94,4 @@ const Context = () => {
   );
 };
 
-export default Context;
+export default ContextPage;
